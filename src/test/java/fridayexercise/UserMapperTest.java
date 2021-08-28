@@ -1,9 +1,6 @@
 package fridayexercise;
 
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -14,15 +11,7 @@ public class UserMapperTest {
 
     public UserMapperTest() {
     }
-
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
+  
     @Before
     public void setUp() throws Exception {
         database = new Database(UserMapper.USER, UserMapper.PASSWORD, UserMapper.URL);
@@ -31,11 +20,6 @@ public class UserMapperTest {
         um.populateTable();
     }
     
-    @After
-    public void tearDown() {
-    }
-
-
     @Test
     public void testListOfUsers() throws Exception {
         um = new UserMapper(database);
@@ -54,4 +38,20 @@ public class UserMapperTest {
         assertEquals(expResult, result);
         System.out.println("TEST| listOfUsers --> PASSED");
     }  
+
+    @Test
+    public void testUpdateUserData() throws Exception {
+        System.out.println("UpdateUserData");
+        int user_id = 4;
+        String newName = "Hej";
+        String newLast = "Jeg";
+        String newPw = "Er";
+        String newPhone = "Ny";
+        String newAdd = "Her";
+        um = new UserMapper(database);
+        int expResult = 1;
+        int result = um.updateUserData(user_id, newName, newLast, newPw, newPhone, newAdd);
+        assertEquals(expResult, result);
+        System.out.println("TEST| UpdateUserData --> PASSED");
+    }
 }

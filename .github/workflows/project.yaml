@@ -1,4 +1,4 @@
-name: Slider Project TDD
+name: Project TDD
 
 on: [push]
 
@@ -20,8 +20,8 @@ jobs:
           container port: 3306
           mysql version: "latest"
           mysql database: "startcode"
-          mysql user: "developer"
-          mysql password: "test"
+          mysql user: ${{ secrets.REMOTE_USER }}
+          mysql password: ${{ secrets.REMOTE_PW }}
 
       - name: Build with Maven
         run: mvn --batch-mode --update-snapshots verify

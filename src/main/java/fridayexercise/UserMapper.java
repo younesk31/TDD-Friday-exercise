@@ -4,8 +4,8 @@ import java.sql.*;
 
 public class UserMapper {
 
-    final static String USER = "developer";
-    final static String PASSWORD = "test";
+    final static String USER = "dev";
+    final static String PASSWORD = "ax2";
     final static String URL = "jdbc:mysql://localhost:3306/startcode?serverTimezone=CET";
     public static Database database;
 
@@ -104,7 +104,7 @@ public class UserMapper {
         }
     }
 
-    public int UpdateUserData(int user_id, String newName, String newLast, String newPw, String newPhone, String newAdd) throws Exception {
+    public int updateUserData(int user_id, String newName, String newLast, String newPw, String newPhone, String newAdd) throws Exception {
         int rowsAffeted;
         try (Connection connection = database.connect()) {
             String sql = "UPDATE usertable SET fname=?, lname=?, pw=?, phone=?, address=? WHERE id=?";
