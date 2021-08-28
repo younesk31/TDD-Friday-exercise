@@ -38,7 +38,7 @@ public class UserMapperTest {
     public void testListOfUsers() throws Exception {
         System.out.println("TEST| listOfUsers");
         UserMapper um = new UserMapper(database);
-        String expResult = "1 - Name: Henning Dahl\n" + "2 - Name: Hannah Dinesen\n" + "3 - Name: Amin Kotchic\n" + "4 - Name: Harun Dupsmith\n";
+        String expResult = "1 - Name: Han Er\n" + "2 - Name: Hannah Dinesen\n" + "3 - Name: Amin Kotchic\n" + "4 - Name: Harun Dupsmith\n";
         String result = um.listOfUsers();
         assertEquals(expResult, result);
     }
@@ -48,24 +48,9 @@ public class UserMapperTest {
         System.out.println("TEST| specificUserDetails");
         int user_id = 1;
         UserMapper um = new UserMapper(database);
-        String expResult = "Henning Dahl sdfw333 +4540949403 Rolighedsvej 22, 2100 Kbh Ø";
+        String expResult = "Han Er Sej 12345678 HanErSejVej 123";
         String result = um.specificUserDetails(user_id);
         assertEquals(expResult, result);
     }
-
-    @Test
-    public void testUpdateUserData() throws Exception {
-        System.out.println("TEST| UpdateUserEmail");
-        int user_id = 1;
-        String newName = "Han";
-        String newLast = "Er";
-        String newPw = "Sej";
-        String newPhone = "12345678";
-        String newAdd = "HanErSejVej 123";
-        UserMapper um = new UserMapper(database);
-        int expResult = 1;
-        int result = um.UpdateUserData(user_id, newName, newLast, newPw, newPhone, newAdd);
-        assertEquals(expResult, result);
-    }
-    
+      
 }
