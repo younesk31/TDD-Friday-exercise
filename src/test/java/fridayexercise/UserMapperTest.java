@@ -33,6 +33,13 @@ public class UserMapperTest {
     @After
     public void tearDown() {
     }
+	
+	@Test
+    public void testCreateTableAndPopulate() throws Exception {
+        System.out.println("createTableAndPopulate");
+        UserMapper um = new UserMapper(database);
+        um.createTableAndPopulate();
+    }
 
     @Test
     public void testListOfUsers() throws Exception {

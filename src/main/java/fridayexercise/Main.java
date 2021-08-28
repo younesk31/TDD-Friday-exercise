@@ -15,8 +15,7 @@ public class Main {
         try {
             database = new Database(USER, PASSWORD, URL);
             UserMapper um = new UserMapper(database);
-            System.out.println(um.listOfUsers());
-            System.out.println(um.specificUserDetails(1));
+            
             
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);

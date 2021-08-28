@@ -1,4 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: fridayexercise.UserMapperTest
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.82 sec - in fridayexercise.UserMapperTest
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.724 sec <<< FAILURE! - in fridayexercise.UserMapperTest
+testCreateTableAndPopulate(fridayexercise.UserMapperTest)  Time elapsed: 0.665 sec  <<< ERROR!
+java.lang.Exception: Access denied for user 'developer'@'172.18.0.1' (using password: YES)
+	at fridayexercise.UserMapperTest.testCreateTableAndPopulate(UserMapperTest.java:41)
+
