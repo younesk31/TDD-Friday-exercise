@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: fridayexercise.UserMapperTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.724 sec <<< FAILURE! - in fridayexercise.UserMapperTest
-testCreateTableAndPopulate(fridayexercise.UserMapperTest)  Time elapsed: 0.665 sec  <<< ERROR!
-java.lang.Exception: Access denied for user 'developer'@'172.18.0.1' (using password: YES)
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.715 sec <<< FAILURE! - in fridayexercise.UserMapperTest
+testCreateTableAndPopulate(fridayexercise.UserMapperTest)  Time elapsed: 0.659 sec  <<< ERROR!
+java.lang.Exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'CREATE TABLE IF NOT EXISTS usertable(id int primary key auto_increment,fname var' at line 2
 	at fridayexercise.UserMapperTest.testCreateTableAndPopulate(UserMapperTest.java:41)
 

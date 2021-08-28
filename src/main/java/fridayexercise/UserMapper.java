@@ -1,44 +1,56 @@
 package fridayexercise;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
 
 public class UserMapper {
 
-    private final Database database;
+    final static String USER = "dev";
+    final static String PASSWORD = "ax2";
+    final static String URL = "jdbc:mysql://localhost:3306/startcode?serverTimezone=CET";
+    public static Database database;
 
     public UserMapper(Database database) {
-        this.database = database;
+        UserMapper.database = database;
     }
-    
-    
-    public void createTableAndPopulate() throws Exception {
+
+    public void createTable() throws Exception {
         try (Connection connection = database.connect()) {
-            String sql = "create table usertable " +
-                            "(id int primary key auto_increment," +
-                            "fname varchar(30)," +
-                            "lname varchar(30)," +
-                            "pw varchar(50)," +
-                            "phone varchar(11)," +
-                            "address varchar(50));"
-                    + "insert into usertable (fname, lname, pw, phone, address) " +
-                    "values (\"Henning\",\"Dahl\",\"sdfw333\",\"+4540949403\",\"Rolighedsvej 22, 2100 Kbh Ø\")," +
-                    "(\"Hannah\",\"Dinesen\",\"fsdkk653kk\",\"+4540546754\",\"Rolighedsvej 67, 2100 Kbh Ø\")," +
-                    "(\"Amin\",\"Kotchic\",\"lkjnnn443\",\"+4540345469\",\"Rolighedsvej 90, 2100 Kbh Ø\")," +
-                    "(\"Harun\",\"Dupsmith\",\"kothis55\",\"+4540677667\",\"Rolighedsvej 104, 2100 Kbh Ø\");";
-            
+            String sql = "CREATE TABLE IF NOT EXISTS startcode.usertable (\n" +
+                    "  id int auto_increment primary key,\n" +
+                    "  fname varchar(30) null,\n" +
+                    "  lname varchar(30) null,\n" +
+                    "  pw varchar(50) null,\n" +
+                    "  phone varchar(11) null,\n" +
+                    "  address varchar(50) null\n" +
+                    ")";
+
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
-               ps.execute();
+                ps.execute();
             } catch (SQLException ex) {
                 throw new Exception(ex.getMessage());
             }
-            System.out.println("Created populated table in given database...");
         } catch (SQLException ex) {
             throw new Exception(ex.getMessage());
         }
     }
-   
+
+    public void populateTable() throws Exception {
+        try (Connection connection = database.connect()) {
+            String sql = "INSERT IGNORE INTO `usertable` VALUES " +
+                    "(1,'Henning','Dahl','sdfw333','+4540949403','Rolighedsvej 22, 2100 Kbh Ø')," +
+                    "(2,'Hannah','Dinesen','fsdkk653kk','+4540546754','Rolighedsvej 67, 2100 Kbh Ø')," +
+                    "(3,'Amin','Kotchic','lkjnnn443','+4540345469','Rolighedsvej 90, 2100 Kbh Ø')," +
+                    "(4,'Harun','Dupsmith','kothis55','+4540677667','Rolighedsvej 104, 2100 Kbh Ø');\n";
+
+            try (PreparedStatement ps = connection.prepareStatement(sql)) {
+                ps.execute();
+            } catch (SQLException ex) {
+                throw new Exception(ex.getMessage());
+            }
+        } catch (SQLException ex) {
+            throw new Exception(ex.getMessage());
+        }
+    }
 
     public String listOfUsers() throws Exception {
         try (Connection connection = database.connect()) {

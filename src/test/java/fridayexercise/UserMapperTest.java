@@ -1,6 +1,5 @@
 package fridayexercise;
 
-import static fridayexercise.Main.database;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -11,14 +10,13 @@ import static org.junit.Assert.*;
 public class UserMapperTest {
     
     Database database;
-    
-    
+    UserMapper um;
+
     public UserMapperTest() {
     }
-   
-    
+
     @BeforeClass
-    public static void setUpClass() { 
+    public static void setUpClass() {
     }
     
     @AfterClass
@@ -26,38 +24,34 @@ public class UserMapperTest {
     }
     
     @Before
-    public void setUp() throws ClassNotFoundException {
-        database = new Database(Main.USER, Main.PASSWORD, Main.URL);
+    public void setUp() throws Exception {
+        database = new Database(UserMapper.USER, UserMapper.PASSWORD, UserMapper.URL);
+        um = new UserMapper(database);
+        um.createTable();
+        um.populateTable();
     }
     
     @After
     public void tearDown() {
     }
-	
-    @Test
-    public void testCreateTableAndPopulate() throws Exception {
-        System.out.println("TEST| createTableAndPopulate");
-        UserMapper um = new UserMapper(database);
-        um.createTableAndPopulate();
-    }
+
 
     @Test
     public void testListOfUsers() throws Exception {
-        System.out.println("TEST| listOfUsers");
-        UserMapper um = new UserMapper(database);
-        String expResult = "1 - Name: Han Er\n" + "2 - Name: Hannah Dinesen\n" + "3 - Name: Amin Kotchic\n" + "4 - Name: Harun Dupsmith\n";
+        um = new UserMapper(database);
+        String expResult = "1 - Name: Henning Dahl\n" + "2 - Name: Hannah Dinesen\n" + "3 - Name: Amin Kotchic\n" + "4 - Name: Harun Dupsmith\n";
         String result = um.listOfUsers();
         assertEquals(expResult, result);
+        System.out.println("TEST| listOfUsers --> PASSED");
     }
     
     @Test
     public void testSpecificUserDetails() throws Exception {
-        System.out.println("TEST| specificUserDetails");
         int user_id = 1;
-        UserMapper um = new UserMapper(database);
-        String expResult = "Han Er Sej 12345678 HanErSejVej 123";
+        um = new UserMapper(database);
+        String expResult = "Henning Dahl sdfw333 +4540949403 Rolighedsvej 22, 2100 Kbh Ø";
         String result = um.specificUserDetails(user_id);
         assertEquals(expResult, result);
-    }
-      
+        System.out.println("TEST| listOfUsers --> PASSED");
+    }  
 }

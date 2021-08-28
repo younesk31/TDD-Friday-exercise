@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Database {
-
+    
     private final String USER;
     private final String PASSWORD;
     private final String URL;
@@ -14,7 +14,6 @@ public class Database {
     public Database(String user, String password, String url) throws ClassNotFoundException {
         String deployed = System.getenv("DEPLOYED");
         if (deployed != null) {
-            // Prod: hent variabler fra setenv.sh i Tomcats bin folder
             USER = System.getenv("JDBC_USER");
             PASSWORD = System.getenv("JDBC_PASSWORD");
             URL = System.getenv("JDBC_CONNECTION_STRING");

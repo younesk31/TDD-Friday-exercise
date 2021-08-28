@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="fridayexercise.UserMapperTest" time="0.724" tests="1" errors="1" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="fridayexercise.UserMapperTest" time="0.715" tests="1" errors="1" skipped="0" failures="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_301\jre\bin"/>
@@ -63,11 +63,11 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase name="testCreateTableAndPopulate" classname="fridayexercise.UserMapperTest" time="0.665">
-    <error message="Access denied for user &apos;developer&apos;@&apos;172.18.0.1&apos; (using password: YES)" type="java.lang.Exception">java.lang.Exception: Access denied for user 'developer'@'172.18.0.1' (using password: YES)
+  <testcase name="testCreateTableAndPopulate" classname="fridayexercise.UserMapperTest" time="0.659">
+    <error message="You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near &apos;CREATE TABLE IF NOT EXISTS usertable(id int primary key auto_increment,fname var&apos; at line 2" type="java.lang.Exception">java.lang.Exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'CREATE TABLE IF NOT EXISTS usertable(id int primary key auto_increment,fname var' at line 2
 	at fridayexercise.UserMapperTest.testCreateTableAndPopulate(UserMapperTest.java:41)
 </error>
-    <system-out><![CDATA[createTableAndPopulate
+    <system-out><![CDATA[TEST| createTableAndPopulate
 ]]></system-out>
   </testcase>
 </testsuite>
