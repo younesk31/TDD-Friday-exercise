@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: fridayexercise.UserMapperTest
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.819 sec
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.82 sec - in fridayexercise.UserMapperTest
