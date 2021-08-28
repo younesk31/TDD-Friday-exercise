@@ -5,8 +5,8 @@ import java.util.logging.Logger;
 
 public class Main {
 
-    final static String USER = "dev";
-    final static String PASSWORD = "ax2";
+    final static String USER = "developer";
+    final static String PASSWORD = "test";
     final static String URL = "jdbc:mysql://localhost:3306/startcode?serverTimezone=CET";
     public static Database database;
 
