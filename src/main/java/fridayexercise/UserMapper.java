@@ -29,6 +29,12 @@ public class UserMapper {
                     "(\"Hannah\",\"Dinesen\",\"fsdkk653kk\",\"+4540546754\",\"Rolighedsvej 67, 2100 Kbh Ø\"),\n" +
                     "(\"Amin\",\"Kotchic\",\"lkjnnn443\",\"+4540345469\",\"Rolighedsvej 90, 2100 Kbh Ø\"),\n" +
                     "(\"Harun\",\"Dupsmith\",\"kothis55\",\"+4540677667\",\"Rolighedsvej 104, 2100 Kbh Ø\");";
+            try (PreparedStatement ps = connection.prepareStatement(sql)) {
+               ps.executeUpdate();
+            } catch (SQLException ex) {
+                throw new Exception(ex.getMessage());
+            }
+            System.out.println("Created table in given database...");
         } catch (SQLException ex) {
             throw new Exception(ex.getMessage());
         }
