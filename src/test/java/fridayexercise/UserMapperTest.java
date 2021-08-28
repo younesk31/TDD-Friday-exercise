@@ -36,7 +36,7 @@ public class UserMapperTest {
         String expResult = "1 - Name: Henning Dahl\n" + "2 - Name: Hannah Dinesen\n" + "3 - Name: Amin Kotchic\n" + "4 - Name: Harun Dupsmith\n";
         String result = um.listOfUsers();
         assertEquals(expResult, result);
-        System.out.println("TEST | listOfUsers --> "+G+"TEST PASSED"+R);
+        System.out.println("TEST | list Of Users --> "+G+"TEST PASSED"+R);
     }
     
     @Test
@@ -46,7 +46,7 @@ public class UserMapperTest {
         String expResult = "Henning Dahl sdfw333 +4540949403 Rolighedsvej 22, 2100 Kbh Ø";
         String result = um.specificUserDetails(user_id);
         assertEquals(expResult, result);
-        System.out.println("TEST | listOfUsers --> "+G+"TEST PASSED"+R);
+        System.out.println("TEST | Specific User Details --> "+G+"TEST PASSED"+R);
     }  
 
     @Test
@@ -61,6 +61,6 @@ public class UserMapperTest {
         int expResult = 1;
         int result = um.updateUserData(user_id, newName, newLast, newPw, newPhone, newAdd);
         assertEquals(expResult, result);
-        System.out.println("TEST | UpdateUserData --> "+G+"TEST PASSED"+R);
+        System.out.println("TEST | Update User Data --> "+G+"TEST PASSED"+R);
     }
 }
