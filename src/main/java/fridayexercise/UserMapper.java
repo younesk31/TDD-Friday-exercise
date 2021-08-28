@@ -16,25 +16,25 @@ public class UserMapper {
     public void createTableAndPopulate() throws Exception {
         try (Connection connection = database.connect()) {
             String sql = "use startcode;\n" +
-                    "create table usertable(\n" +
-                    "id int primary key auto_increment,\n" +
-                    "fname varchar(30),\n" +
-                    "lname varchar(30),\n" +
-                    "pw varchar(50),\n" +
-                    "phone varchar(11),\n" +
-                    "address varchar(50)\n" +
-                    ");\n" +
-                    "insert into usertable (fname, lname, pw, phone, address)\n" +
+                         "create table usertable(\n" +
+                            "id int primary key auto_increment,\n" +
+                            "fname varchar(30),\n" +
+                            "lname varchar(30),\n" +
+                            "pw varchar(50),\n" +
+                            "phone varchar(11),\n" +
+                            "address varchar(50)\n);"
+                    + "insert into usertable (fname, lname, pw, phone, address)\n" +
                     "values (\"Henning\",\"Dahl\",\"sdfw333\",\"+4540949403\",\"Rolighedsvej 22, 2100 Kbh Ø\"),\n" +
                     "(\"Hannah\",\"Dinesen\",\"fsdkk653kk\",\"+4540546754\",\"Rolighedsvej 67, 2100 Kbh Ø\"),\n" +
                     "(\"Amin\",\"Kotchic\",\"lkjnnn443\",\"+4540345469\",\"Rolighedsvej 90, 2100 Kbh Ø\"),\n" +
                     "(\"Harun\",\"Dupsmith\",\"kothis55\",\"+4540677667\",\"Rolighedsvej 104, 2100 Kbh Ø\");";
+            
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
-               ps.executeUpdate();
+               ps.execute();
             } catch (SQLException ex) {
                 throw new Exception(ex.getMessage());
             }
-            System.out.println("Created table in given database...");
+            System.out.println("Created populated table in given database...");
         } catch (SQLException ex) {
             throw new Exception(ex.getMessage());
         }

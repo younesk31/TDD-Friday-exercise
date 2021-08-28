@@ -34,9 +34,9 @@ public class UserMapperTest {
     public void tearDown() {
     }
 	
-	@Test
+    @Test
     public void testCreateTableAndPopulate() throws Exception {
-        System.out.println("createTableAndPopulate");
+        System.out.println("TEST| createTableAndPopulate");
         UserMapper um = new UserMapper(database);
         um.createTableAndPopulate();
     }
