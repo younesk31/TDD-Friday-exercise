@@ -13,9 +13,8 @@ jobs:
         with:
           java-version: '8'
           distribution: 'adopt'
-          
-    steps:     
-      - uses: mirromutth/mysql-action@v1.1
+           
+        uses: mirromutth/mysql-action@v1.1
       - name: Setup MySQL
         with:
           host port: 3306
