@@ -4,8 +4,8 @@ import java.sql.*;
 
 public class UserMapper {
 
-    final static String USER = "dev";
-    final static String PASSWORD = "ax2";
+    final static String USER = "admin";
+    final static String PASSWORD = "root";
     final static String URL = "jdbc:mysql://localhost:3306/startcode?serverTimezone=CET";
     public static Database database;
 
