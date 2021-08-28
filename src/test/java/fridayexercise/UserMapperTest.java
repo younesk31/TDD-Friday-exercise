@@ -41,7 +41,6 @@ public class UserMapperTest {
 
     @Test
     public void testUpdateUserData() throws Exception {
-        System.out.println("UpdateUserData");
         int user_id = 4;
         String newName = "Hej";
         String newLast = "Jeg";
