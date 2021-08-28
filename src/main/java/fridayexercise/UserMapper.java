@@ -34,14 +34,26 @@ public class UserMapper {
         }
     }
 
+    public void dropTable() throws Exception {
+        try (Connection connection = database.connect()) {
+            String sql = "DROP TABLE IF EXISTS `usertable`;";
+            try (PreparedStatement ps = connection.prepareStatement(sql)) {
+                ps.execute();
+            } catch (SQLException ex) {
+                throw new Exception(ex.getMessage());
+            }
+        } catch (SQLException ex) {
+            throw new Exception(ex.getMessage());
+        }
+    }
+
     public void populateTable() throws Exception {
         try (Connection connection = database.connect()) {
-            String sql = "INSERT IGNORE INTO `usertable` VALUES " +
+            String sql = "INSERT INTO `usertable` VALUES " +
                     "(1,'Henning','Dahl','sdfw333','+4540949403','Rolighedsvej 22, 2100 Kbh Ø')," +
                     "(2,'Hannah','Dinesen','fsdkk653kk','+4540546754','Rolighedsvej 67, 2100 Kbh Ø')," +
                     "(3,'Amin','Kotchic','lkjnnn443','+4540345469','Rolighedsvej 90, 2100 Kbh Ø')," +
                     "(4,'Harun','Dupsmith','kothis55','+4540677667','Rolighedsvej 104, 2100 Kbh Ø');\n";
-
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
                 ps.execute();
             } catch (SQLException ex) {
@@ -117,7 +129,6 @@ public class UserMapper {
                 ps.setString(5, newAdd);
                 ps.setInt(6, user_id);
                 rowsAffeted = ps.executeUpdate();
-                System.out.println("Changed User data to --> \n");
                 specificUserDetails(user_id);
             } catch (SQLException ex) {
                 throw new Exception(ex.getMessage());
